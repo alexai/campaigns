@@ -21,6 +21,7 @@ if node.chef_environment == "qa-rc" || node.chef_environment == "d3-stg" || node
 		#Each project
 		init_search(node['artifactory']['url'], node['dfcampaigns']['release_month'], node['dfcampaigns']['release_candidate'])	
                 dfcampaigns_url = search_release_candidates('campaigns-')
+		Chef::Log.info("#{dfcampaigns_url}")
 
                 remote_file "#{Chef::Config[:file_cache_path]}/#{node['campaigns']['artifact_name']}-#{node['campaigns']['version']}-SNAPSHOT-distribution.#{node['campaigns']['file_type']}" do
 
