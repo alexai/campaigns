@@ -19,19 +19,19 @@ attribute "artifactory/url",
 	:default => 'http://172.16.2.157/artifactory'
 attribute "artifactory/repo_name",
 	:required => 'optional',
-	:default => 'libs-snapshot-local'
+	:default => 'release-candidates'
 attribute "artifactory/binaries_repo",
 	:required => 'optional',
-	:default => 'binaries'
+	:default => 'demandforce/campaigns/Release-SNAPSHOT'
 attribute "artifactory/config_repo",
 	:required => 'optional',
 	:default => 'config'
 attribute "artifactory/branch",
 	:required => 'optional',
-	:default => '1.0'
+	:default => 'release-D3-2014-01'
 attribute "artifactory/ending",
 	:required => 'optional',
-	:default => 'war'
+	:default => 'zip'
 attribute "nfs/gid",
 	:required => 'optional',
 	:default => '5000'
@@ -46,13 +46,13 @@ attribute "campaigns/config_dir",
 	:default => '/usr/local/cdm/config'
 attribute "campaigns/artifact_path",
 	:required => 'optional',
-	:default => 'demandforce/campaigns'
+	:default => 'demandforce/campaigns/Release-SNAPSHOT'
 attribute "campaigns/artifact_name",
 	:required => 'optional',
 	:default => 'campaigns'
 attribute "campaigns/version",
 	:required => 'optional',
-	:default => '1.0'
+	:default => 'release-D3-2014-01'
 attribute "campaigns/file_type",
 	:required => 'optional',
 	:default => 'zip'
