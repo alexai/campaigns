@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+
+output=`sysctl -e -n fs.file-nr|cut -f1 `;
+# output=output.chop
+result=$?.success?
+
+ if result == true
+ puts output
+ else
+ puts "-1"
+end

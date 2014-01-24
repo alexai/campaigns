@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+
+output=`/sbin/service campaigns status 2>/dev/null`;
+# output=output.chop
+result=$?.success?
+
+ if result == true
+ puts "1"
+ else
+ puts "-1"
+end

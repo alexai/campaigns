@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="baseDataSourceBean" abstract="true"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>org.gjt.mm.mysql.Driver</value>
+		</property>
+		<property name="username">
+			<value>d3</value>
+		</property>
+		<property name="password">
+			<value>ondemand</value>
+		</property>
+		<property name="maxActive">
+			<value>250</value>
+		</property>
+		<property name="maxIdle">
+			<value>50</value>
+		</property>
+		<property name="validationQuery">
+			<value>SELECT 1</value>
+		</property>
+		<property name="testWhileIdle">
+			<value>true</value>
+		</property>
+		<property name="timeBetweenEvictionRunsMillis">
+			<value>3600000</value>
+		</property>
+		<property name="minEvictableIdleTimeMillis">
+			<value>1800000</value>
+		</property>
+		<property name="testOnBorrow">
+			<value>true</value>
+		</property>
+		<property name="removeAbandoned">
+			<value>true</value>
+		</property>
+	</bean>
+	<bean id="jndi" class="org.apache.xbean.spring.jndi.DefaultContext">
+		<property name="entries">
+			<map>
+				<entry key="network.query.key.0">
+					<bean class="java.lang.String">
+						<contructor-arg value="" />
+					</bean>
+				</entry>
+				<entry key="network.query.key.1">
+					<bean class="java.lang.String">
+						<contructor-arg value="fef187fd547a52908f10e67b99ff2b7e" />
+					</bean>
+				</entry>
+				<entry key="jdbc/login">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfcl:3306/cluster?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/network">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfnetwork:3306/cluster?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/local">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng21db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/cluster">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfcache:3306/cluster?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d31.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng1db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d32.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng2db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d33.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng3db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d34.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng4db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d35.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng5db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d36.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng6db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d37.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng7db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d38.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng8db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d39.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng9db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d310.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng10db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d311.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng11db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d312.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng12db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d313.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng13db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d314.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng14db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d315.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng15db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d316.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng16db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d317.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng17db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d318.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng18db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d319.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng19db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d320.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng20db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d321.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng21db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d322.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng22db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d323.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng23db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d324.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng24db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d325.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng25db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d326.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng26db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d327.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng27db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d328.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng28db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d329.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng29db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d330.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng30db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d331.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng31db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d332.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng32db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d333.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng33db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d334.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng34db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d335.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng35db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d336.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng36db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d337.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng37db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d338.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng38db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d339.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng39db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d340.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng40db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d341.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng41db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d342.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng42db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d343.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng43db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d344.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng44db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d345.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng45db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d346.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng46db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d347.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng47db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d348.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng48db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d349.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng49db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d350.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng50db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d351.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng51db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d352.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng52db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d353.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng53db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d354.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng54db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d355.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng55db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d356.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng56db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d357.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng57db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d358.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng58db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d359.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng59db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d360.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng60db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d361.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng61db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d362.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng62db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d363.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng63db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d364.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng64db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d365.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng65db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d366.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng66db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d367.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng67db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d368.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng68db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d369.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng69db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d370.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng70db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d371.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng71db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d372.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng72db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d373.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng73db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d374.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng74db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d375.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng75db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d376.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng76db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d377.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng77db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d378.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng78db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d379.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng79db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d380.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng80db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d381.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng81db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d382.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng82db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d383.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng83db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d384.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng84db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d385.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng85db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d386.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng86db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d387.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng87db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d388.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng88db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d389.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng89db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d390.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng90db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d391.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng91db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d392.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng92db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d393.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng93db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d394.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng94db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d395.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng95db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d396.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng96db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d397.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng97db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d398.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng98db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d399.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng99db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="d3100.demandforced3.com">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfng100db1:3306/df?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/dfsmtp1">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfsmtp1:3306/maildb?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/sms">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfopenmarket2:3306/sms?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/cellCache">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfopenmarket2:3306/cache?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/openMarket">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfopenmarket2:3306/openmarket?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/network">
+					<bean parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://dfnetwork:3306/cluster?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="zuora.api.key">
+					<bean class="java.lang.String">
+						<constructor-arg value="WpW1dV4hLoEWy-bcR7xFiIDnel7xAXOvtKMfXfGcRvY=" />
+					</bean>
+				</entry>
+				<entry key="zuora.page.id">
+					<bean class="java.lang.String">
+						<constructor-arg value="2c92a0fb3cc919c7013cf36106a34400" />
+					</bean>
+				</entry>
+				<entry key="zuora.tenant.id">
+					<bean class="java.lang.String">
+						<constructor-arg value="2476" />
+					</bean>
+				</entry>
+				<entry key="zuora.app.url">
+					<bean class="java.lang.String">
+						<constructor-arg value="https://www.zuora.com" />
+					</bean>
+				</entry>
+				<entry key="tracking.service.baseUrl">
+					<bean class="java.lang.String">
+						<constructor-arg value="http://dfwidgettracking/fasttrack/api/v2/" />
+					</bean>
+				</entry>
+				<entry key="tracking.client.enabled">
+					<bean class="java.lang.String">
+						<constructor-arg value="1" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

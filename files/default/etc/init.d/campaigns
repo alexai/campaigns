@@ -1,0 +1,68 @@
+#!/bin/sh
+# chkconfig: 2345 95 20
+# description: The campaigns CDM process
+# The cdm process that generate campaigns
+# processname: campaigns
+
+CAMPAIGN_HOME=/usr/local/cdm
+CAMPAIGN_SCRIPT=campaigns.sh
+
+RETVAL=0
+prog="campaigns"
+exec=$CAMPAIGN_HOME/$CAMPAIGN_SCRIPT
+lockfile=/var/lock/subsys/$prog
+config=/etc/sysconfig/$prog
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+CAMPAIGN_PIDFILE=/var/run/$prog.pid
+
+if [ -f "$CAMPAIGN_PIDFILE" ]; then
+  PROCESSPID=`cat $CAMPAIGN_PIDFILE`
+fi
+if [ -z "$PROCESSPID" ]; then
+  PROCESSPID=`ps -ef | grep java | grep $CAMPAIGN_HOME | awk '{{print $2;exit(0);}}'`
+fi
+
+case "$1" in
+start)
+    if [ $UID -ne 0 ] ; then
+        echo "User has insufficient privilege."
+        exit 4
+    fi
+    [ -x $exec ] || exit 5
+    [ -f $config ] || exit 6
+    echo -n $"Starting $prog: "
+    daemon $CAMPAIGN_HOME/$CAMPAIGN_SCRIPT $CAMPAIGNSDARGS
+    PROCESSPID=`ps -ef | grep $CAMPAIGN_HOME | awk '{{print $2;exit(0); }}'`
+    echo $PROCESSPID > $CAMPAIGN_PIDFILE
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+        ;;
+stop)
+    if [ $UID -ne 0 ] ; then
+        echo "User has insufficient privilege."
+        exit 4
+    fi
+    echo -n $"Stopping $prog: "
+    if [ -n "$PROCESSPID" ]; then
+      echo "Terminating Campaigns process $PROCESSPID"
+      kill $PROCESSPID
+      RETVAL=3
+      rm -f $CAMPAIGN_PIDFILE
+    else
+      failure $"Stopping $prog"
+    fi
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    ;;
+status)
+    status -p $CAMPAIGN_PIDFILE $prog
+    ;;
+*)
+    echo "usage: $0 {start|stop|status}"
+    ;;
+esac
