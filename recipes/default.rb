@@ -1,7 +1,7 @@
 #
 # Cookbook Name:: campaigns
 # Recipe:: default
-# Author:: Jayasimhan Masilamani
+# Author:: Alex Ai
 # Updated by :: 
 #
 # Copyright 2013, Intuit Inc.
